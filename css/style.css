@@ -844,3 +844,14 @@ html.page-leave body { opacity: 0; transition: opacity .2s ease; }
 @media (max-width: 767px) {
   .publish-actions .btn { width: 100%; }
 }
+
+/* Bandeau « dernière mise à jour » (accueil) */
+.latest-patch {
+  display: flex; align-items: center; gap: .6rem; margin-bottom: var(--s3); padding: .55rem .8rem;
+  border-radius: var(--radius-sm); text-decoration: none; font-size: .88rem; color: var(--text);
+  background: var(--accent-soft); border: 1px solid rgba(233,69,96,.4); transition: border-color .2s ease, background-color .2s ease;
+}
+.latest-patch:hover { border-color: var(--accent); background: rgba(233,69,96,.22); }
+.latest-patch [data-latest-text] { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.latest-patch i { color: var(--accent); }
+.lp-tag { flex: none; background: var(--accent); color: #fff; border-radius: 999px; padding: 1px 8px; font: 700 .62rem var(--font-head); letter-spacing: .14em; text-transform: uppercase; }

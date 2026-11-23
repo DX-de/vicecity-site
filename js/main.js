@@ -872,6 +872,15 @@
     });
   }
 
+  /* ---------- Dernier patchnote (bandeau de l'accueil) ---------- */
+  const latest = (S.patchnotes || []).find((v) => v && v.version && !String(v.version).startsWith("["));
+  $$("[data-latest-patch]").forEach((a) => {
+    if (!latest) return;
+    a.href = `patchnotes.html#v-${String(latest.version).replace(/[^\w.-]+/g, "").replace(/\./g, "-")}`;
+    $("[data-latest-text]", a).textContent = `Mise à jour ${latest.version}${latest.title ? " — " + latest.title : ""}${latest.date ? " · " + latest.date : ""}`;
+    a.hidden = false;
+  });
+
   /* ---------- Actualités (accueil) ---------- */
   const newsRoot = $("[data-news]");
   if (newsRoot) {
