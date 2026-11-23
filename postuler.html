@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidature - ViceCity RP</title>
+  <meta name="description" content="Postulez pour rejoindre le staff, la police ou l'EMS de ViceCity RP.">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ViceCity RP">
+  <meta property="og:title" content="Candidature - ViceCity RP">
+  <meta property="og:description" content="Postulez pour rejoindre le staff, la police ou l'EMS de ViceCity RP.">
+  <meta property="og:image" content="img/og-image.png"><!-- [Image de partage 1200x630 à fournir] -->
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a class="logo" href="index.html" aria-label="ViceCity RP — Accueil">
+        <span class="logo-mark" aria-hidden="true">VC</span>
+        <span>ViceCity<span class="rp"> RP</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="reglement.html">Règlement</a></li>
+          <li><a href="entreprises.html">Entreprises</a></li>
+          <li><a href="streamers.html">Streamers</a></li>
+          <li><a href="patchnotes.html">Patchnotes</a></li>
+          <li><a href="equipe.html">Équipe</a></li>
+          <li><a href="postuler.html" aria-current="page">Postuler</a></li>
+          <li><a href="boutique.html">Boutique</a></li>
+          <li class="nav-cta"><a data-discord href="#"><i class="fa-brands fa-discord" aria-hidden="true"></i> Discord</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-header">
+      <div class="container">
+        <span class="eyebrow">Rejoindre l'aventure</span>
+        <h1>Candidature</h1>
+        <p>Remplissez le formulaire ci-dessous avec soin. Les candidatures incomplètes ou bâclées ne seront pas traitées.</p>
+      </div>
+    </section>
+    <section class="section" aria-label="Formulaire de candidature">
+      <div class="container form-wrap" id="form-container">
+        <ol class="mini-steps wizard-steps" aria-label="Étapes du formulaire">
+          <li class="active" data-step-label="1"><span>1</span> Identité</li>
+          <li data-step-label="2"><span>2</span> Candidature</li>
+          <li data-step-label="3"><span>3</span> Validation</li>
+        </ol>
+        <div class="wizard-progress" aria-hidden="true"><span data-wizard-bar></span></div>
+        <form class="card form" id="apply-form" novalidate>
+          <div id="form-alert" class="form-alert" role="alert" tabindex="-1" hidden></div>
+          <p class="draft-note" data-draft-note hidden><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Brouillon restauré. <button type="button" class="link-btn" data-clear-draft>Effacer</button></p>
+
+          <fieldset class="wizard-step" data-step="1">
+            <legend class="form-section-title">Étape 1 sur 3 · Qui êtes-vous ?</legend>
+            <div class="form-row">
+              <div class="field">
+              <label for="nom_rp"><i class="fa-solid fa-id-card" aria-hidden="true"></i>Nom RP <span class="req" aria-hidden="true">*</span></label>
+              <input id="nom_rp" name="nom_rp" type="text" autocomplete="off" required aria-describedby="err-nom_rp" placeholder="Prénom Nom">
+              <span class="field-error" id="err-nom_rp"></span>
+            </div>
+              <div class="field">
+              <label for="age"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i>Âge <span class="req" aria-hidden="true">*</span></label>
+              <input id="age" name="age" type="number" min="13" max="99" inputmode="numeric" required aria-describedby="err-age">
+              <span class="field-error" id="err-age"></span>
+            </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+              <label for="email"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Adresse email <span class="req" aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="err-email" placeholder="vous@exemple.com">
+              <span class="field-error" id="err-email"></span>
+            </div>
+              <div class="field">
+              <label for="discord"><i class="fa-brands fa-discord" aria-hidden="true"></i>Pseudo Discord <span class="req" aria-hidden="true">*</span></label>
+              <input id="discord" name="discord" type="text" autocomplete="off" required aria-describedby="err-discord" placeholder="pseudo">
+              <span class="field-error" id="err-discord"></span>
+            </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="wizard-step" data-step="2" hidden>
+            <legend class="form-section-title">Étape 2 sur 3 · Votre candidature</legend>
+            <div class="field">
+              <label for="poste"><i class="fa-solid fa-briefcase" aria-hidden="true"></i>Poste souhaité <span class="req" aria-hidden="true">*</span></label>
+              <select id="poste" name="poste" required aria-describedby="err-poste hint-poste">
+                <option value="">— Choisir —</option>
+                <option value="Staff">Staff</option>
+                <option value="Police">Police</option>
+                <option value="EMS">EMS</option>
+              </select>
+              <p class="hint" id="hint-poste" data-poste-hint hidden></p>
+              <span class="field-error" id="err-poste"></span>
+            </div>
+            <div class="field">
+              <label for="experience"><i class="fa-solid fa-masks-theater" aria-hidden="true"></i>Expérience RP <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="experience" name="experience" required minlength="50" maxlength="1000" aria-describedby="err-experience count-experience" placeholder="Serveurs précédents, rôles joués, durée..."></textarea>
+              <span class="counter" id="count-experience" data-counter-for="experience"></span>
+              <span class="field-error" id="err-experience"></span>
+            </div>
+            <div class="field">
+              <label for="motivation"><i class="fa-solid fa-heart" aria-hidden="true"></i>Pourquoi nous ? <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="motivation" name="motivation" required minlength="50" maxlength="1000" aria-describedby="err-motivation count-motivation" placeholder="Ce qui vous attire sur ViceCity et ce que vous pouvez apporter..."></textarea>
+              <span class="counter" id="count-motivation" data-counter-for="motivation"></span>
+              <span class="field-error" id="err-motivation"></span>
+            </div>
+          </fieldset>
+
+          <fieldset class="wizard-step" data-step="3" hidden>
+            <legend class="form-section-title">Étape 3 sur 3 · Vérifiez et envoyez</legend>
+            <dl class="recap" data-recap></dl>
+            <div class="field">
+              <label class="check" for="rules_ok">
+                <input id="rules_ok" name="rules_ok" type="checkbox" value="oui" required aria-describedby="err-rules_ok">
+                <span>J'ai lu et j'accepte le <a href="reglement.html" target="_blank">règlement du serveur</a>. <span class="req" aria-hidden="true">*</span></span>
+              </label>
+              <span class="field-error" id="err-rules_ok"></span>
+            </div>
+            <p class="muted small"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Après l'envoi, le staff étudie votre candidature puis vous répond sur Discord.</p>
+          </fieldset>
+
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+          <div class="wizard-nav">
+            <button class="btn btn-ghost" type="button" data-wizard-prev hidden><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Retour</button>
+            <span class="muted small wizard-note">* Champs obligatoires · Brouillon enregistré sur cet appareil</span>
+            <button class="btn btn-primary" type="button" data-wizard-next>Suivant <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            <button class="btn btn-primary" type="submit" hidden><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Envoyer</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html" aria-label="ViceCity RP — Accueil">
+          <span class="logo-mark" aria-hidden="true">VC</span>
+          <span>ViceCity<span class="rp"> RP</span></span>
+        </a>
+        <p>[Phrase de présentation courte du serveur.]</p>
+        <div class="social">
+          <a data-discord href="#" aria-label="Rejoindre notre Discord"><i class="fa-brands fa-discord" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <nav aria-label="Liens du pied de page">
+        <h2 class="footer-title">Navigation</h2>
+        <ul class="footer-links"><li><a href="index.html">Accueil</a></li><li><a href="reglement.html">Règlement</a></li><li><a href="entreprises.html">Entreprises</a></li><li><a href="streamers.html">Streamers</a></li><li><a href="patchnotes.html">Patchnotes</a></li><li><a href="equipe.html">Équipe</a></li><li><a href="postuler.html">Postuler</a></li><li><a href="boutique.html">Boutique</a></li></ul>
+      </nav>
+      <div>
+        <h2 class="footer-title">Rejoindre la ville</h2>
+        <p class="footer-ip">IP du serveur</p>
+        <button class="copy-ip copy-ip-lg" data-copy-ip type="button" aria-label="Copier l'adresse IP du serveur"><i class="fa-solid fa-copy" aria-hidden="true"></i> <span data-ip>[IP du serveur]</span></button>
+        <p class="status footer-status" data-status data-state="loading"><span class="status-dot" aria-hidden="true"></span><span class="status-label">Chargement...</span></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span data-year></span> ViceCity RP — Tous droits réservés.</p>
+      <p>Serveur non affilié à Rockstar Games, Take-Two ou Cfx.re.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="Retour en haut de la page"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+
+  <script src="js/patchnotes.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

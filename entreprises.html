@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entreprises - ViceCity RP</title>
+  <meta name="description" content="Découvrez les entreprises, services publics et organisations de ViceCity RP.">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ViceCity RP">
+  <meta property="og:title" content="Entreprises - ViceCity RP">
+  <meta property="og:description" content="Découvrez les entreprises, services publics et organisations de ViceCity RP.">
+  <meta property="og:image" content="img/og-image.png"><!-- [Image de partage 1200x630 à fournir] -->
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a class="logo" href="index.html" aria-label="ViceCity RP — Accueil">
+        <span class="logo-mark" aria-hidden="true">VC</span>
+        <span>ViceCity<span class="rp"> RP</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="reglement.html">Règlement</a></li>
+          <li><a href="entreprises.html" aria-current="page">Entreprises</a></li>
+          <li><a href="streamers.html">Streamers</a></li>
+          <li><a href="patchnotes.html">Patchnotes</a></li>
+          <li><a href="equipe.html">Équipe</a></li>
+          <li><a href="postuler.html">Postuler</a></li>
+          <li><a href="boutique.html">Boutique</a></li>
+          <li class="nav-cta"><a data-discord href="#"><i class="fa-brands fa-discord" aria-hidden="true"></i> Discord</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-header">
+      <div class="container">
+        <span class="eyebrow">ViceCity · Vie économique</span>
+        <h1>Entreprises</h1>
+        <p>Découvrez les entreprises du serveur et rejoignez leur Discord pour les contacter.</p>
+      </div>
+    </section>
+    <section class="section" style="padding-top:var(--s3)" aria-label="Annuaire des entreprises">
+      <div class="container">
+        <div class="toolbar">
+          <div class="search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <label for="company-search" class="sr-only">Rechercher une entreprise</label>
+            <input id="company-search" type="search" placeholder="Rechercher une entreprise..." autocomplete="off">
+          </div>
+          <span class="toolbar-count" data-company-count aria-live="polite">0 entreprise</span>
+        </div>
+        <div class="filters" role="group" aria-label="Filtrer par catégorie" data-company-filters></div>
+        <p class="state" data-company-empty hidden>Aucune entreprise ne correspond à votre recherche.</p>
+        <div data-companies><div class="state"><div class="spinner" aria-hidden="true"></div>Chargement...</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html" aria-label="ViceCity RP — Accueil">
+          <span class="logo-mark" aria-hidden="true">VC</span>
+          <span>ViceCity<span class="rp"> RP</span></span>
+        </a>
+        <p>[Phrase de présentation courte du serveur.]</p>
+        <div class="social">
+          <a data-discord href="#" aria-label="Rejoindre notre Discord"><i class="fa-brands fa-discord" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <nav aria-label="Liens du pied de page">
+        <h2 class="footer-title">Navigation</h2>
+        <ul class="footer-links"><li><a href="index.html">Accueil</a></li><li><a href="reglement.html">Règlement</a></li><li><a href="entreprises.html">Entreprises</a></li><li><a href="streamers.html">Streamers</a></li><li><a href="patchnotes.html">Patchnotes</a></li><li><a href="equipe.html">Équipe</a></li><li><a href="postuler.html">Postuler</a></li><li><a href="boutique.html">Boutique</a></li></ul>
+      </nav>
+      <div>
+        <h2 class="footer-title">Rejoindre la ville</h2>
+        <p class="footer-ip">IP du serveur</p>
+        <button class="copy-ip copy-ip-lg" data-copy-ip type="button" aria-label="Copier l'adresse IP du serveur"><i class="fa-solid fa-copy" aria-hidden="true"></i> <span data-ip>[IP du serveur]</span></button>
+        <p class="status footer-status" data-status data-state="loading"><span class="status-dot" aria-hidden="true"></span><span class="status-label">Chargement...</span></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span data-year></span> ViceCity RP — Tous droits réservés.</p>
+      <p>Serveur non affilié à Rockstar Games, Take-Two ou Cfx.re.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="Retour en haut de la page"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+
+  <script src="js/patchnotes.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
