@@ -11,7 +11,7 @@ window.SITE = {
     ip: "[IP du serveur]",            // ex : "connect cfx.re/join/xxxxxx"
     cfxCode: "",                       // code cfx.re/join (ex : "abc123") — vide = statut indisponible
     maxPlayers: null,                  // ex : 128 (utilisé si l'API ne le fournit pas)
-    discordUrl: "https://discord.gg/8H2jghS7x",   // lien d'invitation du Discord
+    discordUrl: "https://discord.gg/d5qApK7QeZ",   // lien d'invitation du Discord (permanent)
   },
 
   /* Statistiques : null = affiché "—" tant que non renseigné */
