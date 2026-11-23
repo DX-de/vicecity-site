@@ -446,8 +446,24 @@
       correction: { label: "Corrections", one: "Correction", icon: "fa-wrench" },
       suppression: { label: "Suppressions", one: "Suppression", icon: "fa-minus" },
     };
-    const versions = (S.patchnotes || []).filter((v) => v.changes && v.changes.length);
+    // Une version s'affiche si elle a des changements OU un texte (écrit comme sur Discord)
+    const versions = (S.patchnotes || [])
+      .filter((v) => v && ((v.changes && v.changes.length) || String(v.summary || "").trim()))
+      .map((v) => ({ ...v, changes: Array.isArray(v.changes) ? v.changes : [] }));
     const slug = (v) => "v-" + String(v).replace(/[^\w.-]+/g, "").replace(/\./g, "-");
+    // Texte du patchnote mis en forme comme sur Discord : une ligne = un paragraphe,
+    // une ligne qui commence par un emoji = un titre, **gras** et `code` reconnus
+    const EMOJI_START = /^\p{Extended_Pictographic}/u;
+    const inlineMd = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/`([^`]+)`/g, "<code>$1</code>");
+    const richText = (t) => {
+      let first = true;
+      return String(t).split(/\r?\n/).map((l) => l.trim()).filter(Boolean).map((l) => {
+        const head = EMOJI_START.test(l) && l.length <= 90;
+        const cls = head ? (first ? "pd-title" : "pd-head") : "";
+        first = false;
+        return `<p${cls ? ` class="${cls}"` : ""}>${inlineMd(l)}</p>`;
+      }).join("");
+    };
     const filtersEl = $("[data-patch-filters]");
     const toggleAll = $("[data-patch-toggle]");
     const emptyEl = $("[data-patch-empty]");
@@ -488,7 +504,7 @@
             </button>
             <div class="acc-panel" id="${id}-p" role="region" aria-labelledby="${id}-t" hidden>
               <div class="patch-body">
-                ${v.summary ? `<p class="patch-summary">${esc(v.summary)}</p>` : ""}
+                ${String(v.summary || "").trim() ? `<div class="patch-desc">${richText(v.summary)}</div>` : ""}
                 ${groups}
                 ${other.length ? `<div class="patch-group"><ul>${other.map((c) => `<li class="patch-item">${esc(c.text)}</li>`).join("")}</ul></div>` : ""}
                 <div class="patch-actions">
@@ -539,6 +555,7 @@
         $$(".patch", patchRoot).forEach((p) => {
           let n = 0;
           $$(".patch-group[data-group]", p).forEach((g) => { const ok = type === "all" || g.dataset.group === type; g.hidden = !ok; if (ok) n += $$("li", g).length; });
+          if (type === "all") n = Math.max(n, 1); // « Tout » montre aussi les versions sans liste de changements
           p.hidden = n === 0;
           if (n) { any = true; p.classList.add("visible"); if (type !== "all") setAcc($(".patch-head", p), true, false); }
         });
