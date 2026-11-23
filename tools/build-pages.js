@@ -6,6 +6,7 @@ const path = require("path");
 const OUT = process.argv[2];
 
 const NAME = "ViceCity";
+const SITE_URL = "https://dx-de.github.io/vicecity-site/";
 // Numéro de version ajouté aux fichiers CSS/JS : le navigateur recharge tout après chaque mise à jour du site
 const V = Date.now().toString(36);
 const NAV = [["index.html", "Accueil"], ["reglement.html", "Règlement"], ["entreprises.html", "Entreprises"], ["streamers.html", "Streamers"], ["patchnotes.html", "Patchnotes"], ["equipe.html", "Équipe"], ["postuler.html", "Postuler"], ["boutique.html", "Boutique"]];
@@ -22,13 +23,15 @@ function page({ file, title, desc, body, robots, bodyClass = "" }) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title}</title>
   <meta name="description" content="${desc}">
-  ${robots ? '<meta name="robots" content="noindex">\n  ' : ""}<meta name="theme-color" content="#1a1a2e">
+  ${robots ? '<meta name="robots" content="noindex">\n  ' : ""}<meta name="theme-color" content="#3b82f6">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="${NAME} RP">
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${desc}">
-  <meta property="og:image" content="img/og-image.png"><!-- [Image de partage 1200x630 à fournir] -->
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="${SITE_URL}${file === "index.html" ? "" : file}">
+  <meta property="og:image" content="${SITE_URL}img/hero-personnage.webp">
+  <meta property="og:image:alt" content="Personnage de ${NAME} RP tendant un ticket « ViceCity Personnage »">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -148,6 +151,7 @@ const pages = {
           </div>
           <div class="btn-group">
             <a class="btn btn-glow" data-discord href="#"><i class="fa-brands fa-discord" aria-hidden="true"></i> Nous rejoindre</a>
+            <p class="discord-live" data-discord-live hidden><span class="live-dot" aria-hidden="true"></span> <span data-discord-online>0</span> en ligne · <span data-discord-members>0</span> membres sur Discord</p>
             <a class="btn btn-secondary" href="postuler.html"><i class="fa-solid fa-file-signature" aria-hidden="true"></i> Postuler</a>
             <a class="btn btn-primary" data-connect href="#" hidden><i class="fa-solid fa-play" aria-hidden="true"></i> Se connecter</a>
           </div>
@@ -220,6 +224,24 @@ const pages = {
         ${title("team-title", "L'équipe dirigeante", `Les personnes qui font vivre ${NAME} au quotidien.`, "Le staff")}
         <div class="grid grid-3" data-team="featured">${loading()}</div>
         <p class="center mt"><a class="btn btn-secondary" href="equipe.html">Voir toute l'équipe <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="discord-title" data-discord-section hidden>
+      <div class="container">
+        <div class="discord-card reveal">
+          <img class="discord-icon" data-discord-icon src="img/favicon.svg" alt="" width="96" height="96">
+          <div class="discord-info">
+            <span class="eyebrow">Rejoins la communauté</span>
+            <h2 id="discord-title" data-discord-name>${NAME} RP</h2>
+            <p class="discord-counts">
+              <span><span class="live-dot" aria-hidden="true"></span> <strong data-discord-online>0</strong> en ligne</span>
+              <span><span class="dot-grey" aria-hidden="true"></span> <strong data-discord-members>0</strong> membres</span>
+            </p>
+            <p class="muted">Annonces, recrutements, support et patchnotes : tout se passe sur le Discord.</p>
+          </div>
+          <a class="btn btn-primary discord-join" data-discord href="#"><i class="fa-brands fa-discord" aria-hidden="true"></i> Rejoindre le Discord</a>
+        </div>
       </div>
     </section>
 

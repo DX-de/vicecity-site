@@ -889,6 +889,43 @@
     });
   }
 
+  /* ---------- Discord en direct (membres, en ligne, nom, logo) ----------
+     Lu depuis l'invitation publique du serveur (aucune clé nécessaire). Mis en cache 5 min. */
+  const inviteCode = (String(server.discordUrl || "").match(/(?:discord\.gg|discord(?:app)?\.com\/invite)\/([\w-]+)/i) || [])[1];
+  if (inviteCode && ($("[data-discord-live]") || $("[data-discord-section]") || $('[data-stat="discordMembers"]'))) {
+    const CACHE_KEY = `vc-discord-${inviteCode}`;
+    const applyDiscord = (d) => {
+      if (!d || !d.members) return;
+      const fmt = (n) => Number(n).toLocaleString("fr-FR");
+      $$("[data-discord-online]").forEach((el) => (el.textContent = fmt(d.online)));
+      $$("[data-discord-members]").forEach((el) => (el.textContent = fmt(d.members)));
+      $$("[data-discord-name]").forEach((el) => (el.textContent = d.name));
+      if (d.icon) $$("[data-discord-icon]").forEach((img) => { img.src = d.icon; img.alt = `Logo du serveur Discord ${d.name}`; });
+      $$("[data-discord-live], [data-discord-section]").forEach((el) => (el.hidden = false));
+      $$("[data-discord-section] .reveal").forEach((el) => el.classList.add("visible"));
+      S.stats = S.stats || {};
+      if (S.stats.discordMembers == null) { S.stats.discordMembers = d.members; $$('[data-stat="discordMembers"]').forEach((el) => setCounter(el, d.members)); }
+    };
+    let cached = null;
+    try { cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null"); } catch {}
+    if (cached && Date.now() - cached.t < 5 * 60 * 1000) applyDiscord(cached);
+    else {
+      fetch(`https://discord.com/api/v10/invites/${encodeURIComponent(inviteCode)}?with_counts=true`)
+        .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+        .then((j) => {
+          const g = j.guild || {};
+          const d = {
+            t: Date.now(), name: g.name || `${server.name} RP`,
+            icon: g.icon ? `https://cdn.discordapp.com/icons/${g.id}/${g.icon}.${g.icon.startsWith("a_") ? "gif" : "png"}?size=128` : "",
+            members: j.approximate_member_count || 0, online: j.approximate_presence_count || 0,
+          };
+          try { sessionStorage.setItem(CACHE_KEY, JSON.stringify(d)); } catch {}
+          applyDiscord(d);
+        })
+        .catch(() => {}); // invitation expirée ou Discord indisponible : on n'affiche simplement pas les chiffres
+    }
+  }
+
   /* ---------- Dernier patchnote (bandeau de l'accueil) ---------- */
   const latest = (S.patchnotes || []).find((v) => v && v.version && !String(v.version).startsWith("["));
   $$("[data-latest-patch]").forEach((a) => {

@@ -5,19 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ViceCity RP - Serveur FiveM Roleplay</title>
   <meta name="description" content="Rejoignez ViceCity RP, un serveur FiveM roleplay sérieux et immersif. Postulez dès maintenant !">
-  <meta name="theme-color" content="#1a1a2e">
+  <meta name="theme-color" content="#3b82f6">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ViceCity RP">
   <meta property="og:title" content="ViceCity RP - Serveur FiveM Roleplay">
   <meta property="og:description" content="Rejoignez ViceCity RP, un serveur FiveM roleplay sérieux et immersif. Postulez dès maintenant !">
-  <meta property="og:image" content="img/og-image.png"><!-- [Image de partage 1200x630 à fournir] -->
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://dx-de.github.io/vicecity-site/">
+  <meta property="og:image" content="https://dx-de.github.io/vicecity-site/img/hero-personnage.webp">
+  <meta property="og:image:alt" content="Personnage de ViceCity RP tendant un ticket « ViceCity Personnage »">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="css/style.css?v=mwtjrmft">
+  <link rel="stylesheet" href="css/style.css?v=mwtk0v07">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="home">
@@ -64,6 +66,7 @@
           </div>
           <div class="btn-group">
             <a class="btn btn-glow" data-discord href="#"><i class="fa-brands fa-discord" aria-hidden="true"></i> Nous rejoindre</a>
+            <p class="discord-live" data-discord-live hidden><span class="live-dot" aria-hidden="true"></span> <span data-discord-online>0</span> en ligne · <span data-discord-members>0</span> membres sur Discord</p>
             <a class="btn btn-secondary" href="postuler.html"><i class="fa-solid fa-file-signature" aria-hidden="true"></i> Postuler</a>
             <a class="btn btn-primary" data-connect href="#" hidden><i class="fa-solid fa-play" aria-hidden="true"></i> Se connecter</a>
           </div>
@@ -197,6 +200,24 @@
       </div>
     </section>
 
+    <section class="section" aria-labelledby="discord-title" data-discord-section hidden>
+      <div class="container">
+        <div class="discord-card reveal">
+          <img class="discord-icon" data-discord-icon src="img/favicon.svg" alt="" width="96" height="96">
+          <div class="discord-info">
+            <span class="eyebrow">Rejoins la communauté</span>
+            <h2 id="discord-title" data-discord-name>ViceCity RP</h2>
+            <p class="discord-counts">
+              <span><span class="live-dot" aria-hidden="true"></span> <strong data-discord-online>0</strong> en ligne</span>
+              <span><span class="dot-grey" aria-hidden="true"></span> <strong data-discord-members>0</strong> membres</span>
+            </p>
+            <p class="muted">Annonces, recrutements, support et patchnotes : tout se passe sur le Discord.</p>
+          </div>
+          <a class="btn btn-primary discord-join" data-discord href="#"><i class="fa-brands fa-discord" aria-hidden="true"></i> Rejoindre le Discord</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-alt" aria-labelledby="faq-title">
       <div class="container">
         <div class="section-title reveal">
@@ -255,7 +276,7 @@
 
   <!-- patchnotes.js est mis à jour par Embed Sender : on le charge toujours frais (jamais depuis le cache) -->
   <script>document.write('<script src="js/patchnotes.js?t=' + Date.now() + '"><\/script>');</script>
-  <script src="js/data.js?v=mwtjrmft"></script>
-  <script src="js/main.js?v=mwtjrmft"></script>
+  <script src="js/data.js?v=mwtk0v07"></script>
+  <script src="js/main.js?v=mwtk0v07"></script>
 </body>
 </html>
