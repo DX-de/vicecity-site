@@ -585,7 +585,7 @@
 
       const PUB = S.discordPublish || {};
       const EMOJI = { ajout: "✅", amelioration: "⬆️", correction: "🛠️", suppression: "🗑️" };
-      const hexColor = (c) => { const n = parseInt(String(c || "#e94560").replace("#", ""), 16); return Number.isFinite(n) ? n : 0xe94560; };
+      const hexColor = (c) => { const n = parseInt(String(c || "#3b82f6").replace("#", ""), 16); return Number.isFinite(n) ? n : 0x3b82f6; };
       const absUrl = (u) => /^https?:\/\//i.test(String(u || "").trim()) ? String(u).trim() : "";
 
       // Construit le message Discord (format API webhook) d'une version
@@ -853,7 +853,7 @@
           res = await fetch(cfg.discordWebhook, {
             method: "POST", headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username: `${server.name} RP — Candidatures`, allowed_mentions: { parse: [] }, embeds: [{
-              title: `Nouvelle candidature : ${cut(data.poste)}`, color: 0xe94560, timestamp: new Date().toISOString(),
+              title: `Nouvelle candidature : ${cut(data.poste)}`, color: 0x3b82f6, timestamp: new Date().toISOString(),
               fields: [
                 { name: "Nom RP", value: cut(data.nom_rp), inline: true },
                 { name: "Âge", value: cut(data.age), inline: true },

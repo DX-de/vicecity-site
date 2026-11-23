@@ -134,7 +134,7 @@ window.SITE = {
     username: "ViceCity RP • Patchnotes",
     avatarUrl: "",        // image du profil du message (adresse en ligne)
     mention: "",          // ex : "@everyone" ou "<@&ID_DU_ROLE>" — vide = pas de mention
-    color: "#e94560",
+    color: "#3b82f6",
     imageUrl: "",         // bannière en bas de l'embed (adresse en ligne, optionnel)
   },
 
