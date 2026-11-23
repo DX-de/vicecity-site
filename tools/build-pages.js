@@ -6,6 +6,8 @@ const path = require("path");
 const OUT = process.argv[2];
 
 const NAME = "ViceCity";
+// Numéro de version ajouté aux fichiers CSS/JS : le navigateur recharge tout après chaque mise à jour du site
+const V = Date.now().toString(36);
 const NAV = [["index.html", "Accueil"], ["reglement.html", "Règlement"], ["entreprises.html", "Entreprises"], ["streamers.html", "Streamers"], ["patchnotes.html", "Patchnotes"], ["equipe.html", "Équipe"], ["postuler.html", "Postuler"], ["boutique.html", "Boutique"]];
 const ic = (i) => (i.includes("fa-brands") ? i : "fa-solid " + i);
 const DESC = `Rejoignez ${NAME} RP, un serveur FiveM roleplay sérieux et immersif. Postulez dès maintenant !`;
@@ -32,7 +34,7 @@ function page({ file, title, desc, body, robots, bodyClass = "" }) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=${V}">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ""}>
@@ -86,9 +88,10 @@ ${body}
 
   <button class="back-to-top" type="button" aria-label="Retour en haut de la page"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
 
-  <script src="js/patchnotes.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
+  <!-- patchnotes.js est mis à jour par Embed Sender : on le charge toujours frais (jamais depuis le cache) -->
+  <script>document.write('<script src="js/patchnotes.js?t=' + Date.now() + '"><\\/script>');</script>
+  <script src="js/data.js?v=${V}"></script>
+  <script src="js/main.js?v=${V}"></script>
 </body>
 </html>
 `;
