@@ -8,6 +8,18 @@
    ========================================================= */
 window.VC_PATCHNOTES = [
   {
+    "version": "1.0.0",
+    "date": "23/11/2026",
+    "title": "Patch-Note",
+    "summary": "🔧 Corrections & optimisations du serveur\n\n✅ Corrections\n\nCorrection du fichier index.html manquant dans reaper_elevator.\n\nCorrection de l'avertissement lié au chargement de l'interface de l'ascenseur.\n\nIdentification du problème de chemin du fichier alta.ymt dans le mapping médical.\n\nCorrection du chemin à appliquer dans fxmanifest.lua.\n\nIdentification des déclarations de fichiers manquants dans",
+    "changes": [
+      {
+        "type": "ajout",
+        "text": "Développeur"
+      }
+    ]
+  },
+  {
     "version": "[1.1.0]",
     "date": "[JJ/MM/AAAA]",
     "title": "[Titre de la mise à jour]",
